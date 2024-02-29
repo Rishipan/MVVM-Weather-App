@@ -3,8 +3,8 @@ import 'package:getx_mvvm_weather_with_apis/Resources/AppUrl/app_url.dart';
 
 class HomeRepository {
   Future<dynamic> hitApi() async {
-    var appUrl = AppUrl();
-    var response = await ApiServices().getApi(appUrl.url);
+    // var appUrl = AppUrl();
+    var response = await ApiServices().getApi(AppUrl.url);
     return response;
   }
 }

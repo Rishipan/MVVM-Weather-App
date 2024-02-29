@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:restart_app/restart_app.dart';
 
-class SearchBar extends StatelessWidget {
+class SearchBar extends StatefulWidget {
   const SearchBar({super.key});
+
+  @override
+  State<SearchBar> createState() => _SearchBarState();
+}
+
+class _SearchBarState extends State<SearchBar> {
+  final searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +30,9 @@ class SearchBar extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(40),
             ),
-            child: const TextField(
-              decoration: InputDecoration(
+            child: TextField(
+              controller: searchController,
+              decoration: const InputDecoration(
                 hintText: 'Search City',
                 hintStyle: TextStyle(
                   color: Color(0xFF626262),
@@ -38,14 +47,20 @@ class SearchBar extends StatelessWidget {
           SizedBox(
             width: wid * 0.005,
           ),
-          Container(
-            width: len * 0.06,
-            height: len * 0.06,
-            decoration: BoxDecoration(
-              color: const Color(0xFFebfffc),
-              borderRadius: BorderRadius.circular(40),
+          GestureDetector(
+            onTap: () async {
+              searchCity = searchController.text;
+              await Restart.restartApp();
+            },
+            child: Container(
+              width: len * 0.06,
+              height: len * 0.06,
+              decoration: BoxDecoration(
+                color: const Color(0xFFebfffc),
+                borderRadius: BorderRadius.circular(40),
+              ),
+              child: Image.asset('assets/images/search.png'),
             ),
-            child: Image.asset('assets/images/search.png'),
           ),
           // child: Image.asset('assets/images/search.png'),
         ],
@@ -53,3 +68,5 @@ class SearchBar extends StatelessWidget {
     );
   }
 }
+
+String searchCity = "panihati";
