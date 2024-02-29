@@ -43,12 +43,6 @@ class DataModel {
         days!.add(Days.fromJson(v));
       });
     }
-    // if (json['alerts'] != null) {
-    //   alerts = <Null>[];
-    //   json['alerts'].forEach((v) {
-    //     alerts!.add(new Null.fromJson(v));
-    //   });
-    // }
 
     stations =
         json['stations'] != null ? Stations.fromJson(json['stations']) : null;
@@ -70,10 +64,6 @@ class DataModel {
     if (days != null) {
       data['days'] = days!.map((v) => v.toJson()).toList();
     }
-
-    // if (this.alerts != null) {
-    //   data['alerts'] = this.alerts!.map((v) => v.toJson()).toList();
-    // }
 
     if (stations != null) {
       data['stations'] = stations!.toJson();
