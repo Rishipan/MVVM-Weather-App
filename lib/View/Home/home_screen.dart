@@ -41,8 +41,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: InfoCard(),
                   ),
                 ),
+                const SizedBox(height: 10),
                 TileList(),
-                const SizedBox(height: 20),
+                const SizedBox(height: 30),
                 GestureDetector(
                   onTap: () {
                     Get.to(() => UpcommingDays());

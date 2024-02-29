@@ -69,4 +69,4 @@ class _SearchBarState extends State<SearchBar> {
   }
 }
 
-String searchCity = "panihati";
+String searchCity = "kolkata";
